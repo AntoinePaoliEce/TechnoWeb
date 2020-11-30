@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 /** @jsx jsx */
-import { jsx } from '@emotion/core'
+import { jsx } from '@emotion/core';
 // Layout
 import { useTheme } from '@material-ui/core/styles';
-import Link from 'material-ui/core/Link'
+import Link from '@material-ui/core/Link';
 import { CookiesProvider } from 'react-cookie';
-import Cookies from 'universal-cookie';
 
 const useStyles = (theme) => ({
   root: {
@@ -49,7 +48,7 @@ const useCookies = (key, defaultValue) => {
 export default ({
   onUser
 }) => {
-  const styles = useStyles(useTheme())
+  const styles = useStyles(useTheme());
   const [cookies, setCookie, removeCookie]=useCookies([]);  
     const config = {
         authorization_endpoint: "http://127.0.0.1:5556/dex/auth",
@@ -58,11 +57,11 @@ export default ({
         redirect_uri:'http://127.0.0.1:3000',
         scope : 'openid%20email%20offline_access'
     }
-    const params =new URLSearchParams(window.location.search)
-    const code=params.get('code')
-    const crypto = require ('crypto')
-    const axios = require ('axios')
-    const qs = require ('qs')
+    const params =new URLSearchParams(window.location.search);
+    const code=params.get('code');;
+    const crypto = require ('crypto');
+    const axios = require ('axios');
+    const qs = require ('qs');
 
     const base64URLEncode = (str) =>{
       str.toString('base64')
