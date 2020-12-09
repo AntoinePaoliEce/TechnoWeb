@@ -16,13 +16,10 @@ const theme = createMuiTheme({
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
     <CookiesProvider>
-        <ThemeProvider theme={theme}>
-            <App />
-        </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
     </CookiesProvider>
   </React.StrictMode>,
   document.getElementById('root')
