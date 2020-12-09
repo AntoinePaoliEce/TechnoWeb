@@ -1,0 +1,7 @@
+/front-end/node_modules
+/back-end/node_modules
+/front-end/yarn.lock
+/back-end./yarn.lock
+/front-end/package-lock.json
+/back-end/package-lock.json
+!.gitignore
