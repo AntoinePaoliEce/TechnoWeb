@@ -71,6 +71,13 @@ The project template was taken from: https://github.com/adaltas/ece-2020-fall-we
 |  Antoine PAOLI  |  antoine.paoli@edu.ece.fr  |
 |  Mathéo Cambier |  matheo.cambier@edu.ece.fr |
 
+
+| Header 1      |     2 header    |   header 3 |
+| ------------- |: -------------: | ---------: |
+| 1 Online      |        1        |      value |
+| Line 2        |        2        |      value |
+| 3 Online      |        3        |      value |
+
 ## Tasks
 
 Project management
