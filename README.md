@@ -72,11 +72,10 @@ The project template was taken from: https://github.com/adaltas/ece-2020-fall-we
 |  Mathéo Cambier |  matheo.cambier@edu.ece.fr |
 
 
-| Header 1      |     2 header    |   header 3 |
-| ------------- |: -------------: | ---------: |
-| 1 Online      |        1        |      value |
-| Line 2        |        2        |      value |
-| 3 Online      |        3        |      value |
+| Command | Description |
+| --- | --- |
+| git status | List all new or modified files |
+| git diff | Show file differences that haven't been staged |
 
 ## Tasks
 
