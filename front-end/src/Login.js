@@ -71,7 +71,7 @@ const Redirect = ({
   }
   return (
     <div css={styles.root}>
-      <Link onClick={redirect} color="secondary">Login with OpenID Connect and OAuth2</Link>
+      <button onClick={redirect} color="secondary">Login with OpenID Connect and OAuth2</button>
     </div>
   )
 }

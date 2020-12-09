@@ -7,6 +7,8 @@ import { useTheme } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
+import Logout from '@material-ui/icons/ExitToApp';
+import Button from '@material-ui/core/Button';
 import Context from './Context'
 
 const useStyles = (theme) => ({
@@ -25,7 +27,7 @@ const useStyles = (theme) => ({
     [theme.breakpoints.up('sm')]: {
       display: 'none !important',
     },
-  }
+  },
 })
 
 export default ({
@@ -58,7 +60,9 @@ export default ({
         oauth ?
           <span>
             {oauth.email}
-            <Link onClick={onClickLogout}>logout</Link>
+            <Button variant="contained" color="secondary" startIcon={<Logout />}
+                onClick={onClickLogout} 
+                css={styles.logout}>logout</Button>
           </span>
         :
           <span>new user</span>
