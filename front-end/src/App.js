@@ -18,7 +18,6 @@ const styles = {
   },
 }
 
-
 export default () => {
   const [user, setUser] = useState(null)
   const [drawerMobileVisible, setDrawerMobileVisible] = useState(false)
