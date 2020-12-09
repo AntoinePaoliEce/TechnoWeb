@@ -65,17 +65,10 @@
 ## Author
 The project template was taken from: https://github.com/adaltas/ece-2020-fall-webtech-project.</br>
 
-
-|       name      |           email            |
-| --------------- |: ------------------------: |
-|  Antoine PAOLI  |  antoine.paoli@edu.ece.fr  |
-|  Mathéo Cambier |  matheo.cambier@edu.ece.fr |
-
-
-| Command | Description |
+| Name | Email |
 | --- | --- |
-| git status | List all new or modified files |
-| git diff | Show file differences that haven't been staged |
+| Antoine PAOLI | antoine.paoli@edu.ece.fr |
+| Mathéo CAMBIER | matheo.cambier@edu.ece.fr |
 
 ## Tasks
 
