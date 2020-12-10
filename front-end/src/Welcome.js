@@ -38,9 +38,9 @@ export default () => {
         alignItems="center"
         spacing={5}
       >
-        <Grid item xS>
+        <Grid item xs>
           <div css={styles.card}>
-            <Button to='/createchannel'
+            <Button to='/users/createchannel'
               component={Link}>
               <ChannelIcon css={styles.icon} />
               <Typography color="textPrimary">

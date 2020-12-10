@@ -66,7 +66,7 @@ export default () => {
             )
           }
         </Route>
-        <Route path="/createchannel">
+        <Route path="/users/createchannel">
           <ChannelCreation />
         </Route>
         <Route path="/Oups">
