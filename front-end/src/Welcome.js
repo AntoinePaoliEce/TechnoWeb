@@ -8,6 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import {ReactComponent as ChannelIcon} from './icons/channel.svg';
 import {ReactComponent as FriendsIcon} from './icons/friends.svg';
 import {ReactComponent as SettingsIcon} from './icons/settings.svg';
+import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const useStyles = (theme) => ({
   root: {
@@ -36,12 +38,15 @@ export default () => {
         alignItems="center"
         spacing={5}
       >
-        <Grid item xs>
+        <Grid item xS>
           <div css={styles.card}>
-            <ChannelIcon css={styles.icon} />
-            <Typography color="textPrimary">
-              Create channels
-            </Typography>
+            <Button to='/createchannel'
+              component={Link}>
+              <ChannelIcon css={styles.icon} />
+              <Typography color="textPrimary">
+                Create channels
+              </Typography>
+            </Button>
           </div>
         </Grid>
         <Grid item xs>
