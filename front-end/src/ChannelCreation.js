@@ -7,7 +7,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import {useState} from 'react'
+import React,{useState} from 'react'
 import AddList from './channelCreation/AddList'
 
 const useStyles = (theme) => ({
@@ -28,8 +28,9 @@ const useStyles = (theme) => ({
 
 export default () => {
     const styles = useStyles(useTheme())
-    const [users, setUsers] = useState([])
+    //Get users
     const [fetch, setFetch] = useState(true)
+    const [users, setUsers] = useState([])
     /*const addUsers = (users) => {
       fetchUsers()
     }*/
@@ -43,6 +44,13 @@ export default () => {
       fetchUsers()
       setFetch(false)
     }
+    //Get channel name
+    const [channelName, setChannelName] = useState("")
+    const handleChange = e => {
+      setChannelName(e.target.value)
+      console.log(e.target.value)
+    }
+
     return (
       <div css={styles.root}>
       <form css={styles.form}>
@@ -59,32 +67,19 @@ export default () => {
             <Grid item xs={12}>
                 <TextField
                 variant="outlined"
-                label="Channel name"></TextField>
+                label="Channel name"
+                value={channelName}
+                onChange={handleChange}
+                required></TextField>
             </Grid>
-            
             <Grid item xs={12}>
               <Paper style={{maxHeight: 200, overflow: 'auto'}}>
                 <AddList users={users} />
               </Paper>
             </Grid>
             <Grid item xs={12}>
-                <ButtonGroup>
-                  <Button 
-                    variant="contained"
-                    color="secondary"
-                    component={Link}
-                    to='/'>
-                    Cancel
-                  </Button>
-                  <Button 
-                    variant="contained" 
-                    color="primary" 
-                    endIcon={<ArrowForwardIosIcon />}
-                    component={Link}
-                    to='/channels'>
-                    Create
-                  </Button>
-                </ButtonGroup>
+                {//<CreateChannel channelName={channelName} members={members}/>
+}
             </Grid>
         </Grid>
       </form>

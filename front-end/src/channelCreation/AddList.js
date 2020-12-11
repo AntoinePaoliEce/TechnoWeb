@@ -1,4 +1,4 @@
-import {forwardRef} from 'react'
+import {forwardRef, useState} from 'react'
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 // Layout
@@ -49,7 +49,20 @@ const useStyles = (theme) => ({
 
 export default forwardRef(({users,}, ref) => {
   const styles = useStyles(useTheme())
-  
+  //Get info from ticked members
+  const [members, setMembers] = useState([])
+  const handleTick = e => {
+    var userId = e.target.value
+    //console.log(e.target.checked)
+    //console.log(userId)
+    var current_members = [...members] //used to check and avoid duplicates
+    if(e.target.checked && !current_members.includes(userId)){
+      setMembers([... members, userId])
+    }
+    else if(!e.target.checked && current_members.includes(userId))
+      setMembers(current_members.filter(element => userId !== element))
+  }
+  //setTimeout(() => {  console.log(members) }, 2000)
   return (
     <List >
       {users.map(user => {
@@ -62,7 +75,9 @@ export default forwardRef(({users,}, ref) => {
             <ListItemText id={labelId} primary={user.username}/>
             <ListItemSecondaryAction>
             <Checkbox
+                value={user.id}
                 edge="end"
+                onChange={handleTick}
             />
             </ListItemSecondaryAction>
         </ListItem>
