@@ -14,7 +14,6 @@ import {
   Route,
   Switch,
 } from 'react-router-dom'
-import { red } from '@material-ui/core/colors';
 
 const useStyles = (theme) => ({
   root: {
