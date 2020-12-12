@@ -51,6 +51,7 @@ export default () => {
   const fetchMessages = async () => {
     setMessages([])
     const {data: messages} = await axios.get(`http://localhost:3001/channels/${channel.id}/messages`)
+    console.log(messages)
     setMessages(messages)
     if(listRef.current){
       listRef.current.scroll()
