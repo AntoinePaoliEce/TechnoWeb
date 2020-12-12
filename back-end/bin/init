@@ -10,7 +10,7 @@ const config = {
   await app.listen(config.port);
   await Promise.all([{
     name: 'Channel 1',
-    members: [],
+    members: ["2a35bda7-c6f8-471e-bebf-375d45a50954", "dddcb968-ba9d-40c1-a65a-988fc896f309"],
     messages: [{
       author: 'sergei',
       creation: 1602831101929,
@@ -89,6 +89,7 @@ const config = {
     }]
   },{
     name: 'Channel 2',
+    members: ["2a35bda7-c6f8-471e-bebf-375d45a50954", "dddcb968-ba9d-40c1-a65a-988fc896f309"],
     messages: [{
       author: 'sergei',
       creation: 1602223579200,
@@ -104,6 +105,7 @@ const config = {
     }]
   },{
     name: 'Channel 3',
+    members: ["2a35bda7-c6f8-471e-bebf-375d45a50954", "dddcb968-ba9d-40c1-a65a-988fc896f309"],
     messages: [{
       author: 'sergei',
       creation: 1602223579200,

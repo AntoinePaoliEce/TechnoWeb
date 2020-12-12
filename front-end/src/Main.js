@@ -10,6 +10,7 @@ import Context from './Context'
 import Channels from './Channels'
 import Channel from './Channel'
 import Welcome from './Welcome'
+import ChannelToolbar from './ChannelToolbar'
 import {
   Route,
   Switch,
@@ -59,12 +60,12 @@ export default () => {
       <Switch>
         <Route path="/channels/:id">
           <Channel />
+          <ChannelToolbar />
         </Route>
         <Route path="/">
           <Welcome />
         </Route>
       </Switch>
-      <div css={styles.hello}>hello</div>
     </main>
   );
 }
