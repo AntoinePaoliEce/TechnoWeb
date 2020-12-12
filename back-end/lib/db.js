@@ -36,15 +36,14 @@ module.exports = {
         })
       })
     },
+    //marche pas
     update: (id, channel) => {
       const original = store.channels[id]
       if(!original) throw Error('Unregistered channel id')
       store.channels[id] = merge(original, channel)
     },
-    delete: (id, channel) => {
-      const original = store.channels[id]
-      if(!original) throw Error('Unregistered channel id')
-      delete store.channels[id]
+    delete: async (channelId) => {
+      const data = await db.del(`channels:${channelId}`)
     }
   },
   messages: {
