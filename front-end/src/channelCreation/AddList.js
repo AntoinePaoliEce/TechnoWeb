@@ -47,10 +47,10 @@ const useStyles = (theme) => ({
   },
 })
 
-export default forwardRef(({users,}, ref) => {
+export default forwardRef(({users, members, setMembers,}, ref) => {
   const styles = useStyles(useTheme())
   //Get info from ticked members
-  const [members, setMembers] = useState([])
+  
   const handleTick = e => {
     var userId = e.target.value
     //console.log(e.target.checked)
@@ -62,7 +62,7 @@ export default forwardRef(({users,}, ref) => {
     else if(!e.target.checked && current_members.includes(userId))
       setMembers(current_members.filter(element => userId !== element))
   }
-  //setTimeout(() => {  console.log(members) }, 2000)
+  setTimeout(() => {  console.log(members) }, 2000)
   return (
     <List >
       {users.map(user => {

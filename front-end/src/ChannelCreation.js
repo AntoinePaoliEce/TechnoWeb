@@ -1,14 +1,12 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { useTheme } from '@material-ui/core/styles';
-import { Grid, TextField , Paper, ButtonGroup, Button} from '@material-ui/core';
-//Submit button
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import { Grid, TextField , Paper} from '@material-ui/core';
 
-import { Link } from 'react-router-dom';
 import axios from 'axios';
-import React,{useState} from 'react'
+import {useState} from 'react'
 import AddList from './channelCreation/AddList'
+import CreateChannel from './channelCreation/CreateChannel'
 
 const useStyles = (theme) => ({
     root: {
@@ -30,6 +28,7 @@ export default () => {
     const styles = useStyles(useTheme())
     //Get users
     const [fetch, setFetch] = useState(true)
+    const [members, setMembers] = useState([])
     const [users, setUsers] = useState([])
     /*const addUsers = (users) => {
       fetchUsers()
@@ -49,6 +48,11 @@ export default () => {
     const handleChange = e => {
       setChannelName(e.target.value)
       console.log(e.target.value)
+    }
+    //Reset form when submit or cancel
+    const resetForm = e => {
+      setChannelName("")
+      setMembers([])
     }
 
     return (
@@ -74,12 +78,11 @@ export default () => {
             </Grid>
             <Grid item xs={12}>
               <Paper style={{maxHeight: 200, overflow: 'auto'}}>
-                <AddList users={users} />
+                <AddList users={users} members={members} setMembers={setMembers}/>
               </Paper>
             </Grid>
             <Grid item xs={12}>
-                {//<CreateChannel channelName={channelName} members={members}/>
-}
+                <CreateChannel channelName={channelName} members={members} resetForm={resetForm}/>
             </Grid>
         </Grid>
       </form>

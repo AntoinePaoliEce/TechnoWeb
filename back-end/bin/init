@@ -10,6 +10,7 @@ const config = {
   await app.listen(config.port);
   await Promise.all([{
     name: 'Channel 1',
+    members: [],
     messages: [{
       author: 'sergei',
       creation: 1602831101929,
