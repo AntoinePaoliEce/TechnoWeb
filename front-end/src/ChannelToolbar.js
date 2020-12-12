@@ -8,6 +8,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Context from './Context';
+import MemberList from './channel/MemberList';
 
 const useStyles = (theme) => ({
   root: {
@@ -27,15 +28,13 @@ const useStyles = (theme) => ({
 export default () => {
   const {currentChannel,} = useContext(Context)
   const styles = useStyles(useTheme())
-  console.log(currentChannel)
+  //console.log(currentChannel)
   //Delete Channel
   const deleteChannel = async () => {
-    console.log("currentChannel")
     await axios.post(
       `http://localhost:3001/channels/delete/${currentChannel.id}`, 
       {
         id: currentChannel.id,})
-    console.log('deleted')
   }
   return (
     //<div css={styles.hello}>hello</div>
@@ -48,9 +47,10 @@ export default () => {
             <ListItemText primary="Delete"/>
           </Button>
         </ListItem>
-        <ListItem button>
-          <ListItemText primary="Members" /> {//nested list of members: https://material-ui.com/components/lists/
-          }
+        <ListItem>
+          {//<ListItemText primary="Members" />
+}
+          <MemberList/>
         </ListItem>
       </List>
   );

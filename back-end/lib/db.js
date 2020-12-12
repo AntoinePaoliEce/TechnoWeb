@@ -78,6 +78,13 @@ module.exports = {
       })
     },
   },
+  /*members: {
+    list: async (channelId) => {
+      if(!id) throw Error('Invalid id')
+      const data = await db.get(`members:${id}`)
+      const channel = JSON.parse(data)
+      return merge(channel, {id: id})
+  },*/
   users: {
     create: async (user) => {
       if(!user.username) throw Error('Invalid user')

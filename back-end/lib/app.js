@@ -42,7 +42,11 @@ app.put('/channels/:id', async (req, res) => {
   const channel = await db.channels.update(req.body)
   res.json(channel)
 })
-
+// Members
+/*app.get('/channels/:id/members', async (req, res) => {
+  const members = await db.members.list(req.params.id)
+  res.json(members)
+})*/
 // Messages
 
 app.get('/channels/:id/messages', async (req, res) => {
