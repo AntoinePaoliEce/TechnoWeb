@@ -21,7 +21,8 @@ const styles = {
 export default () => {
   const {
     oauth,
-    channels, setChannels
+    channels, setChannels,
+    setCurrentChannel
   } = useContext(Context)
   const history = useHistory();
   useEffect( () => {
@@ -47,6 +48,7 @@ export default () => {
             href={`/channels/${channel.id}`}
             onClick={ (e) => {
               e.preventDefault()
+              setCurrentChannel(channel.id)
               history.push(`/channels/${channel.id}`)
             }}
           >

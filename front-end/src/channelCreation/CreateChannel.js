@@ -61,15 +61,27 @@ export default ({
         to='/'>
         Cancel
       </Button>
-      <Button 
-        variant="contained" 
-        color="primary" 
-        endIcon={<ArrowForwardIosIcon />}
-        onClick={onSubmit}
-        component={Link}
-        to='/channels'>
-        Create
-      </Button>
+      {
+        (channelName === "" && members.lengh === undefined) ? (
+          <Button 
+            variant="contained" 
+            color="primary" 
+            endIcon={<ArrowForwardIosIcon />}>
+            Create
+          </Button>
+        ) : (
+          <Button 
+            variant="contained" 
+            color="primary" 
+            endIcon={<ArrowForwardIosIcon />}
+            onClick={onSubmit}
+            component={Link}
+            to='/channels'>
+            Create
+          </Button>
+        )
+      }
+      
     </ButtonGroup>
   )
 }
