@@ -102,13 +102,13 @@ export default forwardRef(({
             .processSync(message.content)
             return (
               <li key={i} css={styles.message}>
-                <p>
+                <div>
                   <span>{message.author}</span>
                   {' - '}
                   <span>{dayjs().calendar(message.creation)}</span>
                   <DeleteMessage creation={message.creation}/>
                   <ModifyMessage author={message.author}/>
-                </p>
+                </div>
                 <div dangerouslySetInnerHTML={{__html: content}}>
                 </div>
               </li>
