@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NestedList() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
   const {currentChannel,} = useContext(Context)
   //console.log(currentChannel.lengh)
   const handleClick = () => {
@@ -38,6 +38,7 @@ export default function NestedList() {
     const {data: members} = await axios.get(`http://localhost:3001/channels/${currentChannel.id}/members`,
               {id: currentChannel.id})
     //setMembers(members)
+    console.log('members:')
     console.log(members)
   }
   if(fetch === true) {

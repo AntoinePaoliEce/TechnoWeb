@@ -12,6 +12,10 @@ import html from 'rehype-stringify'
 import dayjs from 'dayjs'
 import calendar from 'dayjs/plugin/calendar'
 import updateLocale from 'dayjs/plugin/updateLocale'
+
+import DeleteMessage from './DeleteMessage'
+import ModifyMessage from './ModifyMessage'
+
 dayjs.extend(calendar)
 dayjs.extend(updateLocale)
 dayjs.updateLocale('en', {
@@ -102,6 +106,8 @@ export default forwardRef(({
                   <span>{message.author}</span>
                   {' - '}
                   <span>{dayjs().calendar(message.creation)}</span>
+                  <DeleteMessage creation={message.creation}/>
+                  <ModifyMessage author={message.author}/>
                 </p>
                 <div dangerouslySetInnerHTML={{__html: content}}>
                 </div>

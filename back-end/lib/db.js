@@ -77,13 +77,30 @@ module.exports = {
         })
       })
     },
+    delete: async (channelId, creation) => {
+      const data = await db.del(`messages:${channelId}:${creation}`)
+    }
   },
   /*members: {
     list: async (channelId) => {
-      if(!id) throw Error('Invalid id')
-      const data = await db.get(`members:${id}`)
-      const channel = JSON.parse(data)
-      return merge(channel, {id: id})
+      return new Promise( (resolve, reject) => {
+        const members = []
+        db.createReadStream({
+          gt: `members:${channelId}`,
+          lte: `members:${channelId}` + String.fromCharCode(":".charCodeAt(0)),
+        }).on( 'data', ({key, value}) => {
+          membersId = JSON.parse(value)
+          message.channelId = channelId
+          message.creation = creation
+          messages.push(message)
+        }).on( 'error', (err) => {
+          reject(err)
+        }).on( 'end', () => {
+          resolve(messages)
+        })
+      })
+    },
+    }
   },*/
   users: {
     create: async (user) => {
@@ -115,6 +132,7 @@ module.exports = {
         })
       })
     },
+    //bug
     update: (id, user) => {
       const original = store.users[id]
       if(!original) throw Error('Unregistered user id')

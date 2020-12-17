@@ -43,10 +43,10 @@ app.put('/channels/:id', async (req, res) => {
   res.json(channel)
 })
 // Members
-/*app.get('/channels/:id/members', async (req, res) => {
+app.get('/channels/:id/members', async (req, res) => {
   const members = await db.members.list(req.params.id)
   res.json(members)
-})*/
+})
 // Messages
 
 app.get('/channels/:id/messages', async (req, res) => {
@@ -57,6 +57,11 @@ app.get('/channels/:id/messages', async (req, res) => {
 app.post('/channels/:id/messages', async (req, res) => {
   const message = await db.messages.create(req.params.id, req.body)
   res.status(201).json(message)
+})
+
+app.post('/channels/:id/messages/:creation', async (req, res) => {
+  const response = await db.messages.delete(req.params.id, req.params.creation)
+  res.json(response)
 })
 
 // Users
