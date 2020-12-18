@@ -61,6 +61,7 @@ const useStyles = (theme) => ({
 export default forwardRef(({
   channel,
   messages,
+  fetchMessages,
   onScrollDown,
 }, ref) => {
   const styles = useStyles(useTheme())
@@ -106,8 +107,8 @@ export default forwardRef(({
                   <span>{message.author}</span>
                   {' - '}
                   <span>{dayjs().calendar(message.creation)}</span>
-                  <DeleteMessage creation={message.creation}/>
-                  <ModifyMessage author={message.author}/>
+                  <DeleteMessage  creation={message.creation} author={message.author} fetchMessages={fetchMessages}/>
+                  <ModifyMessage creation={message.creation} author={message.author}/>
                 </div>
                 <div dangerouslySetInnerHTML={{__html: content}}>
                 </div>
