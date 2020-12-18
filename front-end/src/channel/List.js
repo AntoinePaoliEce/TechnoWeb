@@ -108,7 +108,7 @@ export default forwardRef(({
                   {' - '}
                   <span>{dayjs().calendar(message.creation)}</span>
                   <DeleteMessage  creation={message.creation} author={message.author} fetchMessages={fetchMessages}/>
-                  <ModifyMessage creation={message.creation} author={message.author}/>
+                  <ModifyMessage creation={message.creation} author={message.author} fetchMessages={fetchMessages}/>
                 </div>
                 <div dangerouslySetInnerHTML={{__html: content}}>
                 </div>

@@ -6,29 +6,32 @@ import Context from '../Context';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import DoneIcon from '@material-ui/icons/Done';
 
-export default ({creation, author}) => {
+export default ({creation, author, fetchMessages}) => {
     const [enterText, setEnterText] = useState(false)
     const [message, setMessage] = useState("")
     const {currentChannel,oauth} = useContext(Context)
-    const handleClick = () => {
-        setMessage("") //change for old message
-        setEnterText(!enterText)
+    const handleClick = async () => {
+      const {data: messages} = await axios.get(`http://localhost:3001/channels/${currentChannel.id}/messages`)
+      for (const [key, oldMessage] of Object.entries(messages)) {
+        setMessage(oldMessage.content)
+      }
+      setEnterText(!enterText)
     }
     const handleChange = e => {
         setMessage(e.target.value)
-        console.log(message)
     }
     const modifyMessage = async () => {
-      const {data: messages} = await axios.get(`http://localhost:3001/channels/${currentChannel.id}/messages`)
-      console.log(messages)
-      const message = messages.map(message => {
-        if(message.creation === creation.creation)
-          return message
-      })
-      handleClick()
-      console.log(message)
-      console.log("modified")
+      await axios.post(
+        `http://localhost:3001/channels/${currentChannel.id}/messages/${creation}/content/${message}`,
+        {
+          id: currentChannel.id,
+          creation: creation,
+          content: message,
+        })
+      fetchMessages()
+      setEnterText(!enterText)
     }
+    console.log(author)
     if(author === oauth.email)
       return (
         <div>

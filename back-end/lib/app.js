@@ -63,6 +63,10 @@ app.post('/channels/:id/messages/:creation', async (req, res) => {
   const response = await db.messages.delete(req.params.id, req.params.creation)
   res.json(response)
 })
+app.post('/channels/:id/messages/:creation/content/:content', async (req, res) => {
+  const response = await db.messages.update(req.params.id, req.params.creation, req.params.content)
+  res.json(response)
+})
 
 // Users
 
