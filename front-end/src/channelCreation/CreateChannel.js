@@ -42,9 +42,9 @@ export default ({
       members: members,
       messages: [],
     })
-    console.log("channel created :")
-    console.log(channelName)
-    console.log(members)
+    //console.log("channel created :")
+    //console.log(channelName)
+    //console.log(members)
     resetForm()
   }
   const onCancel = () => {

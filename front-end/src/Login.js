@@ -13,6 +13,7 @@ import Context from './Context'
 import {
   useHistory
 } from "react-router-dom";
+import { Button, Typography } from '@material-ui/core';
 
 const base64URLEncode = (str) => {
   return str.toString('base64')
@@ -31,7 +32,7 @@ const sha256 = (buffer) => {
 const useStyles = (theme) => ({
   root: {
     flex: '1 1 auto',
-    backgroundColor: '#430d27',
+    backgroundColor: '#071e3d',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -71,7 +72,13 @@ const Redirect = ({
   }
   return (
     <div css={styles.root} >
-      <button onClick={redirect} size="large" color="secondary">Login with OpenID Connect and OAuth2</button>
+      <Typography variant="h2">Welcome to ECE Messenger</Typography>
+      <Button onClick={redirect} 
+              size="large"
+              color="secondary"
+              component="div">
+        Connect
+      </Button>
     </div>
   )
 }

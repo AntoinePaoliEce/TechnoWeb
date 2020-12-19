@@ -36,7 +36,6 @@ export default () => {
     const fetchUsers = async () => {
       setUsers([])
       const {data: users} = await axios.get(`http://localhost:3001/users`)
-      console.log(users)
       setUsers(users)
     }
     if(fetch === true) {
@@ -54,7 +53,6 @@ export default () => {
       setChannelName("")
       setMembers([])
     }
-
     return (
       <div css={styles.root}>
       <form css={styles.form}>
@@ -77,7 +75,7 @@ export default () => {
                 required></TextField>
             </Grid>
             <Grid item xs={12}>
-              <Paper style={{maxHeight: 200, overflow: 'auto'}}>
+              <Paper style={{maxHeight: 140, overflow: 'auto'}}>
                 <AddList users={users} members={members} setMembers={setMembers}/>
               </Paper>
             </Grid>

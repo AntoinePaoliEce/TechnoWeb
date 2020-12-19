@@ -1,4 +1,4 @@
-import {forwardRef} from 'react'
+import {forwardRef, useLayoutEffect, useRef, useImperativeHandle, useContext} from 'react'
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 // Layout
@@ -12,6 +12,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import { Checkbox } from '@material-ui/core';
 //import Avatar from '@material-ui/core/Avatar';
+
+import Context from '../Context'
 
 const useStyles = (theme) => ({
   root: {
@@ -47,14 +49,12 @@ const useStyles = (theme) => ({
   },
 })
 
-export default forwardRef(({users, members, setMembers,}, ref) => {
+export default forwardRef(({users, members, setMembers,}) => {
   const styles = useStyles(useTheme())
-  //Get info from ticked members
-  
+  const {oauth,} = useContext(Context)
+  // Get member from tick
   const handleTick = e => {
     var userId = e.target.value
-    //console.log(e.target.checked)
-    //console.log(userId)
     var current_members = [...members] //used to check and avoid duplicates
     if(e.target.checked && !current_members.includes(userId)){
       setMembers([... members, userId])
@@ -66,7 +66,8 @@ export default forwardRef(({users, members, setMembers,}, ref) => {
   return (
     <List >
       {users.map(user => {
-        const labelId = `checkbox-list-secondary-label-${user.id}`;
+        const labelId = `checkbox-list-secondary-label-${user.id}`
+        if(user.username !== oauth.email)
         return (
         <ListItem key={user.id} button>
             <ListItemAvatar>

@@ -79,6 +79,7 @@ app.get('/users', async (req, res) => {
 })
 
 app.post('/users', async (req, res) => {
+  if(!req.body) throw Error('Not received: user')
   const user = await db.users.create(req.body)
   res.status(201).json(user)
 })
