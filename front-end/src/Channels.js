@@ -6,17 +6,24 @@ import { jsx } from '@emotion/core'
 import Link from '@material-ui/core/Link'
 // Local
 import Context from './Context'
+import { useTheme } from '@material-ui/core/styles';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
+import Typography from '@material-ui/core/Typography';
 import {useHistory} from 'react-router-dom'
 
-const styles = {
-  // root: {
-  //   minWidth: '200px',
-  // },
-  channel: {
-    padding: '.2rem .5rem',
-    whiteSpace: 'nowrap', 
-  }
-}
+
+
+const useStyles = (theme) => ({
+    root: {
+      width: '100%',
+      backgroundColor: '#373B44',
+    },
+    channel: {
+      padding: '.2rem .5rem',
+      whiteSpace: 'nowrap',
+    }
+  })
 
 export default () => {
   const {
@@ -25,6 +32,7 @@ export default () => {
     setCurrentChannel
   } = useContext(Context)
   const history = useHistory();
+  const styles = useStyles(useTheme())
   useEffect( () => {
     const fetch = async () => {
       try{
@@ -41,6 +49,7 @@ export default () => {
     fetch()
   }, [oauth, setChannels])
   return (
+    <div css={styles.root}>
     <ul style={styles.root}>
       { channels.map( (channel, i) => (
         <li key={i} css={styles.channel}>
@@ -57,5 +66,6 @@ export default () => {
         </li>
       ))}
     </ul>
+    </div>
   );
 }

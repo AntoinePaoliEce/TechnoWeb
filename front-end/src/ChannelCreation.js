@@ -66,7 +66,7 @@ export default () => {
             justify="center">
 
             <Grid item xs={12}>
-              <h2>New Channel</h2> 
+              <h2>New Channel</h2>
             </Grid>
             <Grid item xs={12}>
                 <TextField
@@ -89,4 +89,3 @@ export default () => {
       </div>
     );
   }
-  

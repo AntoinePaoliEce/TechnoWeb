@@ -32,7 +32,7 @@ export default () => {
   //Delete Channel
   const deleteChannel = async () => {
     await axios.post(
-      `http://localhost:3001/channels/delete/${currentChannel.id}`, 
+      `http://localhost:3001/channels/delete/${currentChannel.id}`,
       {
         id: currentChannel.id,})
   }
