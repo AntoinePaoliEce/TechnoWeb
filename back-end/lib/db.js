@@ -36,15 +36,14 @@ module.exports = {
         })
       })
     },
+    //marche pas
     update: (id, channel) => {
       const original = store.channels[id]
       if(!original) throw Error('Unregistered channel id')
       store.channels[id] = merge(original, channel)
     },
-    delete: (id, channel) => {
-      const original = store.channels[id]
-      if(!original) throw Error('Unregistered channel id')
-      delete store.channels[id]
+    delete: async (channelId) => {
+      const data = await db.del(`channels:${channelId}`)
     }
   },
   messages: {
@@ -78,7 +77,46 @@ module.exports = {
         })
       })
     },
+    delete: async (channelId, creation) => {
+      const data = await db.del(`messages:${channelId}:${creation}`)
+    },
+    update: async (channelId, creation, author, content) => {
+      if(!channelId) throw Error('Invalid channel')
+      if(!creation) throw Error('Invalid creation')
+      if(!content) throw Error('Invalid content')
+      if(!author) throw Error('Invalid author')
+      await db.del(`messages:${channelId}:${creation}`)
+      await db.put(`messages:${channelId}:${creation}`, JSON.stringify({
+        author: author,
+        content: content,
+      }))
+      return {
+        author: author,
+        content: content,
+      }
+    },
   },
+  /*members: {
+    list: async (channelId) => {
+      return new Promise( (resolve, reject) => {
+        const members = []
+        db.createReadStream({
+          gt: `members:${channelId}`,
+          lte: `members:${channelId}` + String.fromCharCode(":".charCodeAt(0)),
+        }).on( 'data', ({key, value}) => {
+          membersId = JSON.parse(value)
+          message.channelId = channelId
+          message.creation = creation
+          messages.push(message)
+        }).on( 'error', (err) => {
+          reject(err)
+        }).on( 'end', () => {
+          resolve(messages)
+        })
+      })
+    },
+    }
+  },*/
   users: {
     create: async (user) => {
       if(!user.username) throw Error('Invalid user')
@@ -109,6 +147,7 @@ module.exports = {
         })
       })
     },
+    //bug
     update: (id, user) => {
       const original = store.users[id]
       if(!original) throw Error('Unregistered user id')

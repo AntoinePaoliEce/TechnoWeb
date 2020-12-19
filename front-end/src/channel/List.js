@@ -12,6 +12,10 @@ import html from 'rehype-stringify'
 import dayjs from 'dayjs'
 import calendar from 'dayjs/plugin/calendar'
 import updateLocale from 'dayjs/plugin/updateLocale'
+
+import DeleteMessage from './DeleteMessage'
+import ModifyMessage from './ModifyMessage'
+
 dayjs.extend(calendar)
 dayjs.extend(updateLocale)
 dayjs.updateLocale('en', {
@@ -57,6 +61,7 @@ const useStyles = (theme) => ({
 export default forwardRef(({
   channel,
   messages,
+  fetchMessages,
   onScrollDown,
 }, ref) => {
   const styles = useStyles(useTheme())
@@ -98,11 +103,13 @@ export default forwardRef(({
             .processSync(message.content)
             return (
               <li key={i} css={styles.message}>
-                <p>
+                <div>
                   <span>{message.author}</span>
                   {' - '}
                   <span>{dayjs().calendar(message.creation)}</span>
-                </p>
+                  <DeleteMessage  creation={message.creation} author={message.author} fetchMessages={fetchMessages}/>
+                  <ModifyMessage creation={message.creation} author={message.author} fetchMessages={fetchMessages}/>
+                </div>
                 <div dangerouslySetInnerHTML={{__html: content}}>
                 </div>
               </li>

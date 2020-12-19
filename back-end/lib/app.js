@@ -34,12 +34,19 @@ app.get('/channels/:id', async (req, res) => {
   const channel = await db.channels.get(req.params.id)
   res.json(channel)
 })
-
+app.post('/channels/delete/:id', async (req, res) => {
+  const channel = await db.channels.delete(req.params.id)
+  res.json(channel)
+})
 app.put('/channels/:id', async (req, res) => {
   const channel = await db.channels.update(req.body)
   res.json(channel)
 })
-
+// Members
+app.get('/channels/:id/members', async (req, res) => {
+  const members = await db.members.list(req.params.id)
+  res.json(members)
+})
 // Messages
 
 app.get('/channels/:id/messages', async (req, res) => {
@@ -50,6 +57,18 @@ app.get('/channels/:id/messages', async (req, res) => {
 app.post('/channels/:id/messages', async (req, res) => {
   const message = await db.messages.create(req.params.id, req.body)
   res.status(201).json(message)
+})
+
+app.post('/channels/:id/messages/:creation', async (req, res) => {
+  const response = await db.messages.delete(req.params.id, req.params.creation)
+  res.json(response)
+})
+app.post('/channels/:id/messages/:creation/:author/:content', async (req, res) => {
+  const response = await db.messages.update(req.params.id, 
+                  req.params.creation, 
+                  req.params.author, 
+                  req.params.content)
+  res.json(response)
 })
 
 // Users

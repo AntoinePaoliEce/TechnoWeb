@@ -71,6 +71,7 @@ export default () => {
       <List
         channel={channel}
         messages={messages}
+        fetchMessages={fetchMessages}
         onScrollDown={onScrollDown}
         ref={listRef}
       />

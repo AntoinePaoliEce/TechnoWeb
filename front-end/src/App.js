@@ -8,6 +8,7 @@ import Header from './Header'
 import Main from './Main'
 import Login from './Login'
 import Context from './Context'
+import ChannelCreation from './ChannelCreation'
 // Rooter
 import {
   Switch,
@@ -64,6 +65,9 @@ export default () => {
               />
             )
           }
+        </Route>
+        <Route path="/users/createchannel">
+          <ChannelCreation />
         </Route>
         <Route path="/Oups">
           <Oups />
