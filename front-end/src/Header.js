@@ -17,11 +17,15 @@ const useStyles = (theme) => ({
   header: {
     flexGrow: 1,
     padding: theme.spacing(1),
-    backgroundColor: 'rgba(255,255,255,.3)',
+    backgroundColor: '#582233',
     //flexShrink: 0,
   },
   headerLogIn: {
     width: "100%",
+    textAlign: 'center',
+    textAlignVertical: "center",
+    fontWeight: 'bold',
+    fontSize: 18,
     //backgroundColor: 'red',
   },
   headerLogOut: {
@@ -76,7 +80,7 @@ export default ({
             oauth ?
               <span css={styles.headerLogIn}>
                 {oauth.email}
-                <Button variant="contained" color="secondary" startIcon={<Logout />}
+                <Button variant="contained" style={{float: 'right'}} color="secondary" startIcon={<Logout />}
                     onClick={onClickLogout}>logout</Button>
               </span>
             :

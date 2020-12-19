@@ -31,7 +31,7 @@ const sha256 = (buffer) => {
 const useStyles = (theme) => ({
   root: {
     flex: '1 1 auto',
-    background: theme.palette.background.default,
+    backgroundColor: '#430d27',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -70,8 +70,8 @@ const Redirect = ({
     window.location = url
   }
   return (
-    <div css={styles.root}>
-      <button onClick={redirect} color="secondary">Login with OpenID Connect and OAuth2</button>
+    <div css={styles.root} >
+      <button onClick={redirect} size="large" color="secondary">Login with OpenID Connect and OAuth2</button>
     </div>
   )
 }
@@ -112,7 +112,7 @@ export default ({
   }
   const params = new URLSearchParams(window.location.search)
   const code = params.get('code')
-  // is there a code query parameters in the url 
+  // is there a code query parameters in the url
   if(!code){ // no: we are not being redirected from an oauth server
     if(!oauth){
       const codeVerifier = base64URLEncode(crypto.randomBytes(32))
