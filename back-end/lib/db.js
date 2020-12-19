@@ -80,17 +80,20 @@ module.exports = {
     delete: async (channelId, creation) => {
       const data = await db.del(`messages:${channelId}:${creation}`)
     },
-    update: async (channelId, creation, content) => {
+    update: async (channelId, creation, author, content) => {
       if(!channelId) throw Error('Invalid channel')
-      if(!message.author) throw Error('Invalid message')
-      if(!message.content) throw Error('Invalid message')
-      const data = await db.get(`messages:${channelId}:${creation}`)
+      if(!creation) throw Error('Invalid creation')
+      if(!content) throw Error('Invalid content')
+      if(!author) throw Error('Invalid author')
       await db.del(`messages:${channelId}:${creation}`)
       await db.put(`messages:${channelId}:${creation}`, JSON.stringify({
-        author: data.author,
+        author: author,
         content: content,
       }))
-      return merge(message, {channelId: channelId, creation: creation})
+      return {
+        author: author,
+        content: content,
+      }
     },
   },
   /*members: {

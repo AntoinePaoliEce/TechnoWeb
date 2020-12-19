@@ -22,19 +22,19 @@ export default ({creation, author, fetchMessages}) => {
     }
     const modifyMessage = async () => {
       await axios.post(
-        `http://localhost:3001/channels/${currentChannel.id}/messages/${creation}/content/${message}`,
+        `http://localhost:3001/channels/${currentChannel.id}/messages/${creation}/${author}/${message}`,
         {
           id: currentChannel.id,
           creation: creation,
+          author: author,
           content: message,
         })
-      fetchMessages()
       setEnterText(!enterText)
+      fetchMessages()
     }
-    console.log(author)
     if(author === oauth.email)
       return (
-        <div>
+        <span>
         {enterText ?
             (<div>
                 <TextField id="outlined-basic"
@@ -55,7 +55,7 @@ export default ({creation, author, fetchMessages}) => {
                 </Button>
           )
         }
-        </div>
+        </span>
       )
     else
       return <span></span>

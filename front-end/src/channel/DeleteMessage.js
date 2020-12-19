@@ -3,10 +3,9 @@ import React, {useContext} from 'react'
 import DeleteIcon from '@material-ui/icons/Delete';
 import axios from 'axios';
 import Context from '../Context';
-import {Link} from 'react-router-dom'
 
 export default ({creation, author, fetchMessages}) => {
-    const {currentChannel,} = useContext(Context)
+    const {currentChannel,oauth,} = useContext(Context)
     const deleteMessage = async () => {
         await axios.post(
             `http://localhost:3001/channels/${currentChannel.id}/messages/${creation}`, 
@@ -17,10 +16,13 @@ export default ({creation, author, fetchMessages}) => {
         console.log("deleted")
         fetchMessages()
     }
-    return (
+    if(author === oauth.email)
+      return (
         <Button onClick={deleteMessage}
-            color="secondary">
-            <DeleteIcon/>
+          color="secondary">
+          <DeleteIcon/>
         </Button>
-    )
+      )
+    else
+      return <span></span>
 }

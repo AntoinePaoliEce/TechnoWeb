@@ -35,7 +35,6 @@ export default ({
   channel,
 }) => {
   const {oauth,} = useContext(Context)
-  console.log(oauth.email)
   const [content, setContent] = useState('')
   const styles = useStyles(useTheme())
   const onSubmit = async () => {
