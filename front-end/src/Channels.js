@@ -2,12 +2,11 @@ import {useContext, useEffect} from 'react';
 import axios from 'axios';
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-// Layout
-import Link from '@material-ui/core/Link'
 // Local
 import Context from './Context'
 import { useTheme } from '@material-ui/core/styles';
-import {useHistory} from 'react-router-dom'
+import {useHistory, Link} from 'react-router-dom'
+import { List, ListItem, Typography, Button } from '@material-ui/core';
 
 
 const useStyles = (theme) => ({
@@ -46,22 +45,21 @@ export default () => {
   }, [oauth, setChannels])
   return (
     <div css={styles.root}>
-    <ul style={styles.root}>
+    <List>
       { channels.map( (channel, i) => (
-        <li key={i} css={styles.channel}>
-          <Link
-            href={`/channels/${channel.id}`}
+        <ListItem css={styles.channel} button
+            component={Link}
+            to={`/channels/${channel.id}`}
             onClick={ (e) => {
               e.preventDefault()
               setCurrentChannel(channel.id)
               history.push(`/channels/${channel.id}`)
             }}
           >
-            {channel.name}
-          </Link>
-        </li>
+            <Typography>{channel.name}</Typography>
+        </ListItem>
       ))}
-    </ul>
+    </List>
     </div>
   );
 }
