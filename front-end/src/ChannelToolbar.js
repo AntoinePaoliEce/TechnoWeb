@@ -3,12 +3,14 @@ import { useContext } from 'react';
 import { jsx } from '@emotion/core'
 // Layout
 import { useTheme } from '@material-ui/core/styles';
-import { List, ListItem,ListItemText, Button } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { List, ListItem,ListItemText, Button, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Context from './Context';
 import MemberList from './channel/MemberList';
+// Icons
+import AddIcon from '@material-ui/icons/Add';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const useStyles = (theme) => ({
   root: {
@@ -20,8 +22,9 @@ const useStyles = (theme) => ({
     width: '30%',
     fill: '#fff',
   },
-  hello: {
-    backgroundColor: 'red',
+  icon: {
+    width: '30%',
+    fill: '#fff',
   }
 })
 
@@ -45,6 +48,12 @@ export default () => {
                 to="/">
             <DeleteIcon/>
             <ListItemText primary="Delete"/>
+          </Button>
+        </ListItem>
+        <ListItem>
+          <Button css={styles.icon}>
+            <AddIcon/>
+            <Typography>Add</Typography> 
           </Button>
         </ListItem>
         <ListItem>

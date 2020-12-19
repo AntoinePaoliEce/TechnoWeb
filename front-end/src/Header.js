@@ -15,10 +15,9 @@ import { Link } from 'react-router-dom';
 
 const useStyles = (theme) => ({
   header: {
-    flexGrow: 1,
-    padding: theme.spacing(1),
-    backgroundColor: '#582233',
-    //flexShrink: 0,
+    height: '30px',
+    backgroundColor: '#1f4287',
+    flexShrink: 0,
   },
   headerLogIn: {
     width: "100%",
@@ -55,8 +54,8 @@ export default ({
     e.stopPropagation()
     setOauth(null)
   }
-  return (
-    //<header css={styles.header}>
+  if(oauth)
+    return (
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -87,7 +86,8 @@ export default ({
               <span>new user</span>
           }
         </Toolbar>
-      </AppBar>
-    //</header>
-  );
+      </AppBar>)
+    else
+      return <header style={styles.header}></header>
+  
 }

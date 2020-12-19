@@ -14,6 +14,7 @@ import {
   useHistory
 } from "react-router-dom";
 import { Button, Typography } from '@material-ui/core';
+import PowerIcon from '@material-ui/icons/Power';
 
 const base64URLEncode = (str) => {
   return str.toString('base64')
@@ -73,7 +74,8 @@ const Redirect = ({
   return (
     <div css={styles.root} >
       <Typography variant="h2">Welcome to ECE Messenger</Typography>
-      <Button onClick={redirect} 
+      <Button onClick={redirect}
+              endIcon={<PowerIcon/>}
               size="large"
               color="secondary"
               component="div">

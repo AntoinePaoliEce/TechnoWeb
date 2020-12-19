@@ -62,28 +62,29 @@ export default forwardRef(({users, members, setMembers,}) => {
     else if(!e.target.checked && current_members.includes(userId))
       setMembers(current_members.filter(element => userId !== element))
   }
-  setTimeout(() => {  console.log(members) }, 2000)
+  //setTimeout(() => {  console.log(members) }, 2000)
   return (
     <List >
       {users.map(user => {
         const labelId = `checkbox-list-secondary-label-${user.id}`
         if(user.username !== oauth.email)
-        return (
-        <ListItem key={user.id} button>
-            <ListItemAvatar>
-            <span>logo</span>
-            </ListItemAvatar>
-            <ListItemText id={labelId} primary={user.username}/>
-            <ListItemSecondaryAction>
-            <Checkbox
-                value={user.id}
-                edge="end"
-                onChange={handleTick}
-            />
-            </ListItemSecondaryAction>
-        </ListItem>
-        );
-        })}
+          return (
+          <ListItem key={user.id} button>
+              <ListItemAvatar>
+              <span>logo</span>
+              </ListItemAvatar>
+              <ListItemText id={labelId} primary={user.username}/>
+              <ListItemSecondaryAction>
+              <Checkbox
+                  value={user.id}
+                  edge="end"
+                  onChange={handleTick}
+              />
+              </ListItemSecondaryAction>
+          </ListItem>
+          );
+        })
+      }
     </List>
   )
 })
