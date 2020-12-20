@@ -17,7 +17,6 @@ const useStyles = (theme) => ({
   header: {
     flexGrow: 1,
     padding: theme.spacing(1),
-    backgroundColor: '#582233',
     //flexShrink: 0,
   },
   headerLogIn: {

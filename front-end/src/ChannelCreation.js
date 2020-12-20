@@ -2,7 +2,8 @@
 import { jsx } from '@emotion/core'
 import { useTheme } from '@material-ui/core/styles';
 import { Grid, TextField , Paper} from '@material-ui/core';
-
+import {useContext} from 'react'
+import Context from './Context'
 import axios from 'axios';
 import {useState} from 'react'
 import AddList from './channelCreation/AddList'
@@ -10,6 +11,16 @@ import CreateChannel from './channelCreation/CreateChannel'
 
 const useStyles = (theme) => ({
     root: {
+      backgroundColor: '#e2f3f5',
+      overflow: 'hidden',
+      flex: '1 1 auto',
+      display: 'flex',
+      flexDirection: 'row',
+      justify: 'center',
+      alignItems: 'center',
+      color: '#0e153a',
+    },
+    dark: {
       backgroundColor: '#373B44',
       overflow: 'hidden',
       flex: '1 1 auto',
@@ -21,6 +32,13 @@ const useStyles = (theme) => ({
     form: {
       width: '50%',
       margin: 'auto',
+    },
+    text: {
+        color :'#0e153a',
+        borderColor: '#0e153a'
+      },
+
+    dark_text : {
     }
   })
 
@@ -30,6 +48,19 @@ export default () => {
     const [fetch, setFetch] = useState(true)
     const [members, setMembers] = useState([])
     const [users, setUsers] = useState([])
+    const {dark_mode} = useContext(Context)
+    var mode;
+    var texte;
+    if (dark_mode==false)
+      {
+        mode=styles.root
+        texte=styles.text
+      }
+    else {
+      mode=styles.dark
+      texte=styles.dark_text
+    }
+
     /*const addUsers = (users) => {
       fetchUsers()
     }*/
@@ -56,7 +87,7 @@ export default () => {
     }
 
     return (
-      <div css={styles.root}>
+      <div css={mode}>
       <form css={styles.form}>
         <Grid
             container

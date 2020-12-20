@@ -18,7 +18,15 @@ import {
 
 const useStyles = (theme) => ({
   root: {
-    backgroundColor: '#071e3d',
+    backgroundColor: '#e2f3f5',
+    overflow: 'hidden',
+    flex: '1 1 auto',
+    display: 'flex',
+    flexDirection: 'row',
+    position: 'relative',
+  },
+  dark: {
+    backgroundColor: '#373B44',
     overflow: 'hidden',
     flex: '1 1 auto',
     display: 'flex',
@@ -38,12 +46,21 @@ export default () => {
   const {
     drawerVisible,
   } = useContext(Context)
+  const {dark_mode} = useContext(Context)
   const theme = useTheme()
   const styles = useStyles(theme)
+  var mode;
+  if (dark_mode==false)
+    {
+      mode=styles.root
+    }
+  else {
+    mode=styles.dark
+  }
   const alwaysOpen = useMediaQuery(theme.breakpoints.up('sm'))
   const isDrawerVisible = alwaysOpen || drawerVisible
   return (
-    <main css={styles.root}>
+    <main css={mode}>
       <Drawer
         PaperProps={{ style: { position: 'relative' } }}
         BackdropProps={{ style: { position: 'relative' } }}

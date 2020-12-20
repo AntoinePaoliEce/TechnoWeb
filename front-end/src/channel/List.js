@@ -25,6 +25,7 @@ const useStyles = (theme) => ({
   root: {
     position: 'relative',
     flex: '1 1 auto',
+    color : '#0e153a',
     'pre': {
 
       overflowY: 'auto',
@@ -35,6 +36,11 @@ const useStyles = (theme) => ({
       'textIndent': 0,
       'listStyleType': 0,
     },
+  },
+  light: {
+    color : '#0e153a',
+  },
+  dark: {
   },
   message: {
     padding: '.2rem .5rem',
@@ -62,6 +68,15 @@ export default forwardRef(({
 }, ref) => {
   const styles = useStyles(useTheme())
   const {oauth} = useContext(Context)
+  const {dark_mode} = useContext(Context)
+  var mode_text;
+  if (dark_mode==false)
+    {
+      mode_text=styles.light
+    }
+  else {
+    mode_text=styles.dark
+  }
   // Expose the `scroll` action
   useImperativeHandle(ref, () => ({
     scroll: scroll
@@ -92,7 +107,7 @@ export default forwardRef(({
     return () => rootNode.removeEventListener('scroll', handleScroll)
   })
   return (
-    <div css={styles.root} ref={rootEl}>
+    <div css={styles.root, mode_text} ref={rootEl}>
       <h1>Messages for {channel.name}</h1>
       <ul>
         { messages.map( (message, i) => {
