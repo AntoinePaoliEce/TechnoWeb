@@ -13,7 +13,8 @@ export default ({creation, author, fetchMessages}) => {
     const handleClick = async () => {
       const {data: messages} = await axios.get(`http://localhost:3001/channels/${currentChannel.id}/messages`)
       for (const [key, oldMessage] of Object.entries(messages)) {
-        setMessage(oldMessage.content)
+        if(oldMessage.creation === creation)
+          setMessage(oldMessage.content)
       }
       setEnterText(!enterText)
     }

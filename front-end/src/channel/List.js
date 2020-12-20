@@ -120,7 +120,6 @@ export default forwardRef(({
     rootNode.addEventListener('scroll', handleScroll)
     return () => rootNode.removeEventListener('scroll', handleScroll)
   })
-  console.log(oauth.email)
   return (
     <div css={styles.root, mode_text} ref={rootEl}>
       <h1>Messages for {channel.name}</h1>
