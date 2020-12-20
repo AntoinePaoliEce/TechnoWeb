@@ -1,7 +1,7 @@
 
 # ECE Messenger - final project
 
-The aim of this project was to code a chat application in nodeJS. We, Antoine Paoli and Mathéo Cambier, both student at ECE Paris coded this application based from this template: https://github.com/adaltas/ece-2020-fall-webtech-project. This project made us get familiar with different javascript tools such as Material-UI component, routers and the Client/Server communications. The key-value storage LevelDB was used for this project.
+The aim of this project was to code a chat application in nodeJS. We, Antoine Paoli and Mathéo Cambier, both student at ECE Paris coded this application from this template: https://github.com/adaltas/ece-2020-fall-webtech-project. This project made us get familiar with different javascript tools such as Material-UI component, routers and the Client/Server communications. The key-value storage LevelDB was used for this project.
 
 ## Usage
 
