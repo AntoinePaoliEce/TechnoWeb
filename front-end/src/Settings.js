@@ -21,7 +21,7 @@ import {useState} from 'react'
 
 const useStyles = (theme) => ({
     root: {
-      backgroundColor: '#e2f3f5',
+      backgroundColor: '#88bef5',
       overflow: 'hidden',
       flex: '1 1 auto',
       display: 'flex',
@@ -51,26 +51,16 @@ const useStyles = (theme) => ({
 
   export default () => {
       const styles = useStyles(useTheme())
-      const [users, setUsers] = useState([])
       const {dark_mode, setDark_mode} = useContext(Context)
-      const handleToggle = (value) => () => {
-        const currentIndex = dark_mode.indexOf(value);
-        const newChecked = [...dark_mode];
-
-        if (currentIndex === -1) {
-          newChecked.push(value);
-        } else {
-          newChecked.splice(currentIndex, 1);
-        }
-        setDark_mode(newChecked);
-      };
+      const handleToggle = () => {
+        setDark_mode(!dark_mode)
+      }
       var mode;
-      if (dark_mode==false)
-        {
-          mode=styles.root
-        }
+      if (!dark_mode) {
+        mode = styles.root
+      }
       else {
-        mode=styles.dark
+        mode = styles.dark
       }
       return (
         <div css={mode}>
@@ -82,9 +72,8 @@ const useStyles = (theme) => ({
           <ListItemSecondaryAction>
           <Switch
             edge="end"
-            onChange={handleToggle('dark_mode')}
-            checked={dark_mode.indexOf('dark_mode') !== -1}
-            inputProps={{ 'aria-labelledby': 'switch-list-label-dark_mode' }}
+            onChange={handleToggle}
+            checked={dark_mode}
           />
         </ListItemSecondaryAction>
         </ListItem>

@@ -43,17 +43,17 @@ const useStyles = (theme) => ({
 
 export default () => {
   const styles = useStyles(useTheme())
+  //Change to dark mode
   const {dark_mode} = useContext(Context)
   var mode_icon;
   var mode_text;
-  if (dark_mode==false)
-    {
-      mode_icon=styles.icon
-      mode_text=styles.text
-    }
+  if (dark_mode === false) {
+    mode_icon = styles.icon
+    mode_text = styles.text
+  }
   else {
-    mode_icon=styles.icon_dark
-    mode_text=styles.text_dark
+    mode_icon = styles.icon_dark
+    mode_text = styles.text_dark
   }
   return (
     <div css={styles.root}>

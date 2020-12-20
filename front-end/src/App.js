@@ -37,17 +37,16 @@ const styles = {
 
 export default () => {
   const location = useLocation()
-  const {oauth} = useContext(Context)
+  const {oauth, dark_mode} = useContext(Context)
   const [drawerMobileVisible, setDrawerMobileVisible] = useState(false)
   const drawerToggleListener = () => {
     setDrawerMobileVisible(!drawerMobileVisible)
   }
-  const {dark_mode} = useContext(Context)
+  //Change to dark mode
   var theme;
-  if (dark_mode==false)
-    {
-      theme=styles.root;
-    }
+  if (dark_mode === false) {
+    theme=styles.root
+  }
   else {
     theme=styles.dark
   }

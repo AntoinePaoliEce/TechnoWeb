@@ -14,7 +14,7 @@ export const Provider = ({
   const [drawerVisible, setDrawerVisible] = useState(false)
   const [channels, setChannels] = useState([])
   const [currentChannel, setCurrentChannel] = useState(null)
-  const [dark_mode, setDark_mode] = React.useState(['dark_mode']);
+  const [dark_mode, setDark_mode] = useState(true)
   return (
     <Context.Provider value={{
       oauth: oauth,

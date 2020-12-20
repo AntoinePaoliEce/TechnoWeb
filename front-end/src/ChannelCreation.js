@@ -11,7 +11,7 @@ import CreateChannel from './channelCreation/CreateChannel'
 
 const useStyles = (theme) => ({
     root: {
-      backgroundColor: '#e2f3f5',
+      backgroundColor: '#88bef5',
       overflow: 'hidden',
       flex: '1 1 auto',
       display: 'flex',
@@ -33,13 +33,6 @@ const useStyles = (theme) => ({
       width: '50%',
       margin: 'auto',
     },
-    text: {
-        color :'#0e153a',
-        borderColor: '#0e153a'
-      },
-
-    dark_text : {
-    }
   })
 
 export default () => {
@@ -49,25 +42,18 @@ export default () => {
     const [members, setMembers] = useState([])
     const [users, setUsers] = useState([])
     const {dark_mode} = useContext(Context)
+    //Change to dark mode
     var mode;
-    var texte;
-    if (dark_mode==false)
-      {
-        mode=styles.root
-        texte=styles.text
-      }
+    if (!dark_mode) {
+      mode = styles.root
+    }
     else {
       mode=styles.dark
-      texte=styles.dark_text
     }
 
-    /*const addUsers = (users) => {
-      fetchUsers()
-    }*/
     const fetchUsers = async () => {
       setUsers([])
       const {data: users} = await axios.get(`http://localhost:3001/users`)
-      console.log(users)
       setUsers(users)
     }
     if(fetch === true) {
@@ -78,7 +64,6 @@ export default () => {
     const [channelName, setChannelName] = useState("")
     const handleChange = e => {
       setChannelName(e.target.value)
-      console.log(e.target.value)
     }
     //Reset form when submit or cancel
     const resetForm = e => {
