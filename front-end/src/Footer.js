@@ -1,4 +1,3 @@
-
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { GridList, Grid, Typography, Box } from '@material-ui/core';
@@ -22,7 +21,6 @@ const styles = {
     border: "3px",
     padding: "10px",
     float: "left",
-
   }
 }
 

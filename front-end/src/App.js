@@ -9,6 +9,7 @@ import Main from './Main'
 import Login from './Login'
 import Context from './Context'
 import ChannelCreation from './ChannelCreation'
+import Settings from './Settings'
 // Rooter
 import {
   Switch,
@@ -22,20 +23,35 @@ const styles = {
     boxSizing: 'border-box',
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: '#565E71',
+    backgroundColor: '#f0f0f0',
     padding: '50px',
   },
+  dark : {
+    boxSizing: 'border-box',
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: '#303a52',
+    padding: '50px',
+  }
 }
 
 export default () => {
   const location = useLocation()
-  const {oauth} = useContext(Context)
+  const {oauth, dark_mode} = useContext(Context)
   const [drawerMobileVisible, setDrawerMobileVisible] = useState(false)
   const drawerToggleListener = () => {
     setDrawerMobileVisible(!drawerMobileVisible)
   }
+  //Change to dark mode
+  var theme;
+  if (dark_mode === false) {
+    theme=styles.root
+  }
+  else {
+    theme=styles.dark
+  }
   return (
-    <div className="App" css={styles.root}>
+    <div className="App" css={theme}>
       <Header drawerToggleListener={drawerToggleListener}/>
       <Switch>
         <Route exact path="/">
@@ -68,6 +84,9 @@ export default () => {
         </Route>
         <Route path="/users/createchannel">
           <ChannelCreation />
+        </Route>
+        <Route path="/users/settings">
+          <Settings />
         </Route>
         <Route path="/Oups">
           <Oups />

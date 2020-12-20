@@ -2,7 +2,8 @@
 import { jsx } from '@emotion/core'
 import { useTheme } from '@material-ui/core/styles';
 import { Grid, TextField , Paper} from '@material-ui/core';
-
+import {useContext} from 'react'
+import Context from './Context'
 import axios from 'axios';
 import {useState} from 'react'
 import AddList from './channelCreation/AddList'
@@ -10,6 +11,16 @@ import CreateChannel from './channelCreation/CreateChannel'
 
 const useStyles = (theme) => ({
     root: {
+      backgroundColor: '#88bef5',
+      overflow: 'hidden',
+      flex: '1 1 auto',
+      display: 'flex',
+      flexDirection: 'row',
+      justify: 'center',
+      alignItems: 'center',
+      color: '#0e153a',
+    },
+    dark: {
       backgroundColor: '#373B44',
       overflow: 'hidden',
       flex: '1 1 auto',
@@ -21,7 +32,7 @@ const useStyles = (theme) => ({
     form: {
       width: '50%',
       margin: 'auto',
-    }
+    },
   })
 
 export default () => {
@@ -30,9 +41,16 @@ export default () => {
     const [fetch, setFetch] = useState(true)
     const [members, setMembers] = useState([])
     const [users, setUsers] = useState([])
-    /*const addUsers = (users) => {
-      fetchUsers()
-    }*/
+    const {dark_mode} = useContext(Context)
+    //Change to dark mode
+    var mode;
+    if (!dark_mode) {
+      mode = styles.root
+    }
+    else {
+      mode=styles.dark
+    }
+
     const fetchUsers = async () => {
       setUsers([])
       const {data: users} = await axios.get(`http://localhost:3001/users`)
@@ -46,7 +64,6 @@ export default () => {
     const [channelName, setChannelName] = useState("")
     const handleChange = e => {
       setChannelName(e.target.value)
-      console.log(e.target.value)
     }
     //Reset form when submit or cancel
     const resetForm = e => {
@@ -54,7 +71,7 @@ export default () => {
       setMembers([])
     }
     return (
-      <div css={styles.root}>
+      <div css={mode}>
       <form css={styles.form}>
         <Grid
             container
