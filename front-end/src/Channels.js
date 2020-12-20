@@ -47,7 +47,7 @@ export default () => {
     <div css={styles.root}>
     <List>
       { channels.map( (channel, i) => (
-        <ListItem css={styles.channel} button
+        <ListItem key={channel.id} css={styles.channel} button
             component={Link}
             to={`/channels/${channel.id}`}
             onClick={ (e) => {

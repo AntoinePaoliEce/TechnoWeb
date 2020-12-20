@@ -28,7 +28,7 @@ export default () => {
   return (
     <footer style={styles.footer}>
       <div css={styles.contact}>
-        <Typography variant="caption text">
+        <Typography variant="caption">
           <Box fontWeight="fontWeightLight"
               fontStyle="oblique">
             Contact: antoine.paoli@edu.ece.fr | matheo.cambier@edu.ece.fr
@@ -36,7 +36,7 @@ export default () => {
         </Typography>
       </div>
       <div css={styles.copyright}>
-        <Typography variant="caption text">
+        <Typography variant="caption">
           <Box fontWeight="fontWeightLight"
               fontStyle="oblique">
             © 2020 by ECE Messenger

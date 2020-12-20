@@ -49,7 +49,7 @@ const useStyles = (theme) => ({
   },
 })
 
-export default forwardRef(({users, members, setMembers,}) => {
+export default ({users, members, setMembers,}) => {
   const styles = useStyles(useTheme())
   const {oauth,} = useContext(Context)
   // Get member from tick
@@ -93,5 +93,5 @@ export default forwardRef(({users, members, setMembers,}) => {
       }
     </List>
   )
-})
+}
 

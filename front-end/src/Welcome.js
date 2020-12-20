@@ -77,14 +77,6 @@ export default () => {
         </Grid>
         <Grid item xs>
           <div css={styles.card}>
-            <FriendsIcon css={mode_icon} />
-            <Typography css={mode_text}>
-              Invite friends
-            </Typography>
-          </div>
-        </Grid>
-        <Grid item xs>
-          <div css={styles.card}>
           <Button to='/users/settings'
             component={Link}>
             <SettingsIcon css={mode_icon} />
