@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import { GridList, Grid, Typography, Box } from '@material-ui/core';
+import { Typography, Box } from '@material-ui/core';
 
 const styles = {
   footer: {

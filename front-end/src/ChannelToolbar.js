@@ -22,10 +22,6 @@ const useStyles = (theme) => ({
     width: '30%',
     fill: '#fff',
   },
-  icon: {
-    width: '30%',
-    fill: '#fff',
-  }
 })
 
 export default () => {

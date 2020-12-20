@@ -1,12 +1,9 @@
 /** @jsx jsx */
-import React from 'react';
 import {useContext} from 'react';
 import { jsx } from '@emotion/core'
 import { useTheme } from '@material-ui/core/styles';
-import { Grid, TextField , Paper} from '@material-ui/core';
-import List from '@material-ui/core/List';
+import { Grid} from '@material-ui/core';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
@@ -15,8 +12,6 @@ import {ReactComponent as Avatar1} from './Avatar/avatar1.svg';
 import {ReactComponent as Avatar2} from './Avatar/avatar2.svg';
 import {ReactComponent as Avatar3} from './Avatar/avatar3.svg';
 import Context from './Context'
-import axios from 'axios';
-import {useState} from 'react'
 
 
 const useStyles = (theme) => ({

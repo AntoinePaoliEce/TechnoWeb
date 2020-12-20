@@ -1,4 +1,4 @@
-import {forwardRef, useLayoutEffect, useRef, useImperativeHandle, useContext} from 'react'
+import {useContext} from 'react'
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 // Layout
@@ -50,14 +50,14 @@ const useStyles = (theme) => ({
 })
 
 export default ({users, members, setMembers,}) => {
-  const styles = useStyles(useTheme())
+  //const styles = useStyles(useTheme())
   const {oauth,} = useContext(Context)
   // Get member from tick
   const handleTick = e => {
     var userId = e.target.value
     var current_members = [...members] //used to check and avoid duplicates
     if(e.target.checked && !current_members.includes(userId)){
-      setMembers([... members, userId])
+      setMembers([...members, userId])
     }
     else if(!e.target.checked && current_members.includes(userId))
       setMembers(current_members.filter(element => userId !== element))

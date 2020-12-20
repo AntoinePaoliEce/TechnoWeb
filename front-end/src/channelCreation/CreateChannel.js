@@ -5,7 +5,6 @@ import { jsx } from '@emotion/core'
 import Button from "@material-ui/core/Button"
 import ButtonGroup from "@material-ui/core/ButtonGroup"
 // import Icon from "@material-ui/core/Icon"
-import { useTheme } from '@material-ui/core/styles';
 //Submit button
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { Link } from 'react-router-dom';
@@ -33,7 +32,6 @@ export default ({
   members,
   resetForm,
 }) => {
-  const styles = useStyles(useTheme())
   const onSubmit = async () => {
     const {data: newChannel} = await axios.post(
       `http://localhost:3001/channels/`

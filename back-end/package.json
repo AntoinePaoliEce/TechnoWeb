@@ -1,8 +1,8 @@
 {
-  "name": "webtech-back-end",
-  "version": "0.0.0",
-  "description": "WebTech back-end demo lab",
-  "author": "david worms <david@adaltas.com>",
+  "name": "messenger-back-end",
+  "version": "1.0.0",
+  "description": "ECE Messenger back-end demo",
+  "author": "Antoine Paoli <antoine.paoli@edu.ece.fr> & Matheo Cambier <matheo.cambier@edu.ece.fr> & david worms <david@adaltas.com>",
   "dependencies": {
     "axios": "^0.21.0",
     "body-parser": "^1.19.0",

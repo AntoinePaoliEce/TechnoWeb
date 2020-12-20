@@ -1,7 +1,7 @@
 {
-  "name": "webtech-front-end",
-  "version": "0.1.0",
-  "description": "WebTech front-end demo lab",
+  "name": "messenger-front-end",
+  "version": "1.0.0",
+  "description": "ECE Messenger front-end",
   "private": true,
   "dependencies": {
     "@emotion/core": "^10.0.35",
