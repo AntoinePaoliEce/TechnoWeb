@@ -81,7 +81,7 @@ Github was the versionning website used. In order to seperate tasks better, we w
 Application development
 
 * Welcome screens   
-For a nice welcoming application, we changed the components and colors of the connection page. We filled the footer and put a little plug icon for an intuitive connection.
+For a nice welcoming application, we changed the components and colors of the connection page. We filled the footer and put a little plug icon for an intuitive connection. To have acces to the welcome screen at any time, you can click on the *More Options* button.
 * New channel creation   
 Once connected, the user can create a channel by going to *More Options*->*Create Channel*. The new channel name is mandatory. The user has also to select (by checking) at least one user to create a channel. The list printed is the list of **all** users in the database (except the user connected). The user can cancel the channel creation by pressing on the red *Cancel* button.</br>
 **important: the page is not scrollable so you must not have your window shorten** otherwise the *Create* and *Cancel* buttons won't appear on the screen.</br>
