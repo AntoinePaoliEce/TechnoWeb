@@ -83,8 +83,8 @@ Application development
 * Welcome screens   
 For a nice welcoming application, we changed the components and colors of the connection page. We filled the footer and put a little plug icon for an intuitive connection.
 * New channel creation   
-Once connected, the user can create a channel by going to More Options->Create Channel. The new channel name is mandatory. The user has also to select (by checking) at least one user to create a channel. The list printed is the list of **all** users in the database (except the user connected). The user can cancel the channel creation by pressing on the red *Cancel* button.
-**important: the page is not scrollable so you must not have your window shorten** otherwise the *Create* and *Cancel* buttons won't appear on the screen.
+Once connected, the user can create a channel by going to *More Options*->*Create Channel*. The new channel name is mandatory. The user has also to select (by checking) at least one user to create a channel. The list printed is the list of **all** users in the database (except the user connected). The user can cancel the channel creation by pressing on the red *Cancel* button.</br>
+**important: the page is not scrollable so you must not have your window shorten** otherwise the *Create* and *Cancel* buttons won't appear on the screen.</br>
 
 -> A channel can be deleted by clicking on the red bin button in the channel toolbar.
 * Channel membership and access   
@@ -94,7 +94,8 @@ Once connected, the user can create a channel by going to More Options->Create C
 * Invite users to channels   
 *We unfortunatly didn't have the time to do this part* We still have a nice button *+ Add* in the channel toolbar.
 * Message modification   
-The user can modify **his** messages by clicking on the red pen button next to his messages. When this button is clicked, a textfield will appear with the old message already typed in, thus the user will only have to modify the message by typing his new message and click on the check button next to the textfield. This action will modify the message in levelDB and refresh the channel to see the update. In the case where he changed his mind and finally didn't want to change his message, he can just click on the left arrow next to the textfield and it will cancel his modifications (and the textfield will disappear).
+The user can modify **his** messages by clicking on the red pen button next to his messages. When this button is clicked, a textfield will appear with the old message already typed in, thus the user will only have to modify the message by typing his new message and click on the check button next to the textfield. This action will modify the message in levelDB and refresh the channel to see the update.</br>
+In the case where he changed his mind and finally didn't want to change his message, he can just click on the left arrow next to the textfield and it will cancel his modifications (and the textfield will disappear).
 * Message removal   
 The user can delete **his** messages by clicking on the red bin next to his messages. This action will delete the message in levelDB and be removed from the channel.
 * Account settings   
@@ -103,7 +104,7 @@ The user can access to the settings by clicking on the *More Options* button on 
 Gravatar is integrated in our app. The user will see the gravatar of the other users of the channel and his next to the names. We also put the gravatar images when a channel is being created, the gravatar of each user is printed next to their names in the full list of users (Go to *More Options*->*Create Channel*).
 * Avatar selection   
 We unfortunatly didn't have the time to do this part. However, we still tried to assemble components in order to show an idea of what we wanted to do for the avatar selection.
-* Personal custom avatar   
+* Personal custom avatar
 *We unfortunatly didn't have the time to do this part.*
 
 ## Bonus
