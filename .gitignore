@@ -4,6 +4,6 @@ package-lock.json
 yarn.lock
 /dex-config/config-private.yaml
 /dex
-/back-end/db
+db
 !.gitignore
 
