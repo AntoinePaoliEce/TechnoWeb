@@ -57,6 +57,15 @@ const useStyles = (theme) => ({
     top: 0,
     width: '50px',
   },
+  avatar: {
+    display: "inline-block",
+    width:'40px', 
+    length:'40px',
+  },
+  infoText: {
+    display: "inline-block",
+    margin: "10px",
+  },
 })
 
 export default forwardRef(({
@@ -111,13 +120,15 @@ export default forwardRef(({
             var avatar = 'http://www.gravatar.com/avatar/' + hash;
             return (
               <li key={i} css={styles.message}>
-                <div>
-                  <span><img src={avatar}  css={{width:'40px', length:'40px'}}/></span>
-                  <span>{message.author}</span>
-                  {' - '}
-                  <span>{dayjs().calendar(message.creation)}</span>
-                  <DeleteMessage  creation={message.creation} author={message.author} fetchMessages={fetchMessages}/>
-                  <ModifyMessage creation={message.creation} author={message.author} fetchMessages={fetchMessages}/>
+                <div css={styles.info}>
+                  <span><img src={avatar}  css={styles.avatar}/></span>
+                  <div css={styles.infoText}>
+                    <span>{message.author}</span>
+                    {' - '}
+                    <span>{dayjs().calendar(message.creation)}</span>
+                    <DeleteMessage  creation={message.creation} author={message.author} fetchMessages={fetchMessages}/>
+                    <ModifyMessage creation={message.creation} author={message.author} fetchMessages={fetchMessages}/>
+                  </div>
                 </div>
                 <div dangerouslySetInnerHTML={{__html: content}}>
                 </div>
