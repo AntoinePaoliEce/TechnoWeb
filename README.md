@@ -69,7 +69,7 @@ Project management
 
 * Naming convention   
 We tried to have clear variable and file names. ex: *ChannelCreation* for the channel creation or *CreateChannel* which is the button to create a channel and which is called by *ChannelCreation*.
-* Project structure
+* Project structure</br>
 We stored the components called for channel printing or channel creation in a folder for better understanding and organization. We kept seperated all backend operations and frontend so that communications would only be with HTTP requests/responses.
 * Code quality   
 We favored using the Context to pass variables to far components. We also reviewed many times in order to make our files intuitive.
