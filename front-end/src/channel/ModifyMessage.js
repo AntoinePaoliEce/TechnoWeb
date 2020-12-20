@@ -49,7 +49,7 @@ export default ({creation, author, fetchMessages}) => {
                     <DoneIcon/>
                 </Button>
             </div>) :
-            (         
+            (
                 <Button onClick={handleClick}
                     color="secondary">
                     <CreateIcon/>

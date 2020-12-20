@@ -9,31 +9,13 @@ import ButtonGroup from "@material-ui/core/ButtonGroup"
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { Link } from 'react-router-dom';
 
-const useStyles = (theme) => {
-  // See https://github.com/mui-org/material-ui/blob/next/packages/material-ui/src/OutlinedInput/OutlinedInput.js
-  const borderColor = theme.palette.mode === 'light' ? 'rgba(0, 0, 0, 0.23)' : 'rgba(255, 255, 255, 0.23)';
-  return {
-    form: {
-      borderTop: `2px solid ${borderColor}`,
-      padding: '.5rem',
-      display: 'flex',
-    },
-    content: {
-      flex: '1 1 auto',
-      '&.MuiTextField-root': {
-        marginRight: theme.spacing(1),
-      },
-    },
-  }
-}
 
 export default ({
   channelName,
   members,
   resetForm,
 }) => {
-  const onSubmit = async () => {
-    const {data: newChannel} = await axios.post(
+  const onSubmit = async () => { await axios.post(
       `http://localhost:3001/channels/`
     , {
       name: channelName,
@@ -50,7 +32,7 @@ export default ({
   }
   return (
     <ButtonGroup>
-      <Button 
+      <Button
         variant="contained"
         color="secondary"
         onClick={onCancel}
@@ -60,16 +42,16 @@ export default ({
       </Button>
       {
         (channelName === "" && members.lengh === undefined) ? (
-          <Button 
-            variant="contained" 
-            color="primary" 
+          <Button
+            variant="contained"
+            color="primary"
             endIcon={<ArrowForwardIosIcon />}>
             Create
           </Button>
         ) : (
-          <Button 
-            variant="contained" 
-            color="primary" 
+          <Button
+            variant="contained"
+            color="primary"
             endIcon={<ArrowForwardIosIcon />}
             onClick={onSubmit}
             component={Link}
@@ -78,7 +60,7 @@ export default ({
           </Button>
         )
       }
-      
+
     </ButtonGroup>
   )
 }

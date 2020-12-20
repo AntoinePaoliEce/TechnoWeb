@@ -6,7 +6,7 @@ import { jsx } from '@emotion/core'
 import Context from './Context'
 import { useTheme } from '@material-ui/core/styles';
 import {useHistory, Link} from 'react-router-dom'
-import { List, ListItem, Typography, Button } from '@material-ui/core';
+import { List, ListItem, Typography} from '@material-ui/core';
 
 
 const useStyles = (theme) => ({

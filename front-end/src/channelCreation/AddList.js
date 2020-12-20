@@ -2,7 +2,6 @@ import {useContext} from 'react'
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 // Layout
-import { useTheme } from '@material-ui/core/styles';
 
 //https://material-ui.com/components/lists/
 import List from '@material-ui/core/List';
@@ -15,39 +14,6 @@ import { Checkbox } from '@material-ui/core';
 
 import Context from '../Context'
 
-const useStyles = (theme) => ({
-  root: {
-    position: 'relative',
-    flex: '1 1 auto',
-    'pre': {
-      
-      overflowY: 'auto',
-    },
-    '& ul': {
-      'margin': 0,
-      'padding': 0,
-      'textIndent': 0,
-      'listStyleType': 0,
-    },
-  },
-  message: {
-    padding: '.2rem .5rem',
-    ':hover': {
-      backgroundColor: 'rgba(255,255,255,.05)',
-    },
-  },
-  fabWrapper: {
-    position: 'absolute',
-    right: 0,
-    top: 0,
-    width: '50px',
-  },
-  fab: {
-    position: 'fixed !important',
-    top: 0,
-    width: '50px',
-  },
-})
 
 export default ({users, members, setMembers,}) => {
   //const styles = useStyles(useTheme())
@@ -72,12 +38,12 @@ export default ({users, members, setMembers,}) => {
         // gravatar
         var hash = MD5(user.username.trim().toLowerCase());
         var avatar = 'http://www.gravatar.com/avatar/' + hash;
-        
+
         if(user.username !== oauth.email)
           return (
           <ListItem key={user.id} button>
               <ListItemAvatar>
-              <span><img src={avatar} css={{width:'40px', length:'40px'}}/></span>
+              <span><img src={avatar} alt ="avatar" css={{width:'40px', length:'40px'}}/></span>
               </ListItemAvatar>
               <ListItemText id={labelId} primary={user.username}/>
               <ListItemSecondaryAction>
@@ -94,4 +60,3 @@ export default ({users, members, setMembers,}) => {
     </List>
   )
 }
-

@@ -1,4 +1,4 @@
-import React,{useContext, useState} from 'react';
+import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -6,7 +6,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import Context from '../Context';
 //import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
@@ -23,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
 export default function NestedList() {
   const classes = useStyles();
   const [open, setOpen] = useState(true);
-  const {currentChannel,} = useContext(Context)
   //console.log(currentChannel.lengh)
   const handleClick = () => {
     setOpen(!open);

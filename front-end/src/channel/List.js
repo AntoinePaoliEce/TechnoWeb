@@ -65,7 +65,7 @@ const useStyles = (theme) => ({
   },
   avatar: {
     display: "inline-block",
-    width:'40px', 
+    width:'40px',
     length:'40px',
   },
   infoText: {
@@ -81,15 +81,14 @@ export default forwardRef(({
   onScrollDown,
 }, ref) => {
   const styles = useStyles(useTheme())
-  const {oauth} = useContext(Context)
   const {dark_mode} = useContext(Context)
   var mode_text;
-  if (dark_mode==false)
+  if (dark_mode === false)
     {
-      mode_text=styles.light
+      mode_text = styles.light
     }
   else {
-    mode_text=styles.dark
+    mode_text = styles.dark
   }
   // Expose the `scroll` action
   useImperativeHandle(ref, () => ({
@@ -135,7 +134,7 @@ export default forwardRef(({
             return (
               <li key={i} css={styles.message}>
                 <div css={styles.info}>
-                  <span><img src={avatar}  css={styles.avatar}/></span>
+                  <span><img src={avatar} alt='avatar' css={styles.avatar}/></span>
                   <div css={styles.infoText}>
                     <span>{message.author}</span>
                     {' - '}
