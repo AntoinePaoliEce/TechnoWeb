@@ -54,6 +54,7 @@ export default () => {
     const fetchUsers = async () => {
       setUsers([])
       const {data: users} = await axios.get(`http://localhost:3001/users`)
+      console.log(users)
       setUsers(users)
     }
     if(fetch === true) {

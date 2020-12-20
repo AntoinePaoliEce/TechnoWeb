@@ -127,7 +127,7 @@ const config = {
       await axios.post(`http://localhost:${config.port}/channels/${id}/messages`, message)
     }))
   }))
-  await Promise.all(["antoine.paoli@edu.ece.fr", "matheo.cambier@edu.ece.fr", "john.lennon@edu.ece.fr",
+  await Promise.all(["matheo.cambier@edu.ece.fr", "john.lennon@edu.ece.fr",
   "paul.mcartney@edu.ece.fr", "michael.jackson@edu.ece.fr","matheocambiere@gmail.com"].map(async (username) => {
   const {data: data} = await axios.post(`http://localhost:${config.port}/users`,
   {

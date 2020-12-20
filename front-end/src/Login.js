@@ -136,6 +136,7 @@ export default ({
     }
   }else{ // yes: we are coming from an oauth server
     const codeVerifier = cookies.code_verifier
+    const [userInDb, setUserInDb] = useState(false)
     useEffect( () => {
       const fetch = async () => {
         try {
@@ -150,6 +151,20 @@ export default ({
           }))
           removeCookie('code_verifier')
           setOauth(data)
+          // Check if user in db
+          const {data: users} = await axios.get(`http://localhost:3001/users`)
+          for (const [key, user] of Object.entries(users)) {
+            if(user.email === data.email)
+              setUserInDb(true)
+          }
+          if(!userInDb)
+          {
+            await axios.post(`http://localhost:3001/users`,
+              {
+                username: data.email
+              }
+            )
+          }
           // window.location = '/'
           history.push('/')
         }catch (err) {
