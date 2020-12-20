@@ -5,6 +5,11 @@ This is a chat application we wrote to learn the basics and the not so basics fe
 
 ## Usage
 
+Initialize the database for the web application
+```bash
+./bin/init
+```
+
 Start the web application:
 
 ```bash
